@@ -21,7 +21,7 @@ import * as util from "util";
           script: __dirname + '/dist/src/main.js'
         }, err => {
           console.log(err);
-          process.exit();
+          process.exit(0);
         });
       }
     });
