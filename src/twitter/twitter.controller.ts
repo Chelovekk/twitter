@@ -7,9 +7,10 @@ dotenv.config()
 class TwitterController{
   @Get()
   async handleCrc(@Query('crc_token') crcToken : string){
-    const hmac = crypto.createHmac('sha256', process.env.TWITTER_APPLICATION_CLIENT_SECRET).update(crcToken).digest("base64");
+    const hmac = crypto.createHmac('sha256', process.env.TWITTER_CONSUMER_SECRET).update(crcToken).digest("base64");
     console.log('twitter response');
-    return { response_token:`sha256=${hmac}` }
+    console.log(crcToken, hmac);
+    return { "response_token": `sha256=${hmac}` }
   }
   @Post()
   async handle(){
