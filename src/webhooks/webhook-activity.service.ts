@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 
 const { userActivity } = require('twitter-webhooks');
-const { dotenv } = require('dotenv');
+const dotenv = require('dotenv');
 dotenv.config()
 
 @Injectable()
