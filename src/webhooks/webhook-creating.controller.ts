@@ -8,7 +8,7 @@ export class WebhookCreatingController {
   @Post()
   async createWebhooks(){
       const activity = await userActivity({
-        serverUrl: 'https://megatesttwit.herokuapp.com',
+        serverUrl: process.env.BASE_URL,
         route: '/webhook/twitter',
         consumerKey: process.env.TWITTER_CONSUMER_KEY,
         consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
