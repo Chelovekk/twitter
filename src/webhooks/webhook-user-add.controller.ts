@@ -11,6 +11,13 @@ export class WebhookUserAddController{
     console.log(username);
     const activity = await this.webhookActivityService.handle();
     const registeredWebhooks = await activity.getWebhooks();
-    console.log(registeredWebhooks);
+    console.dir(registeredWebhooks, {depth: null});
+
+    const subStatus = await activity.subscribe({
+      userId: process.env.TWITTER_ID,
+      accessToken: process.env.TWITTER_ACCESS_TOKEN,
+      accessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+    });
+    console.dir(subStatus);
   }
 }

@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Query} from "@nestjs/common";
+import {Body, Controller, Get, Post, Query, Req} from "@nestjs/common";
 import * as crypto from 'crypto'
 import * as dotenv from 'dotenv'
 dotenv.config()
@@ -13,8 +13,8 @@ class TwitterController{
     return { "response_token": `sha256=${hmac}` }
   }
   @Post()
-  async handle(){
-    console.log(1);
+    async handle(@Body() body : object){
+    console.dir(body, {depth:null});
   }
 }
 export default TwitterController;
